@@ -1,12 +1,15 @@
-
-struct Person {
-    name: String,
-    debt: f32,
+pub struct Person {
+    pub name: String,
+    pub debt: f32,
 }
 
-fn build_person(name_: String, debt_: f32) -> Person {
-    Person{
-        name: name_,
-        debt: debt_,
+
+impl Person {
+    pub fn new(name: String, debt: f32) -> Person {
+        Person{
+            name,
+            debt,
+        }
     }
 }
+

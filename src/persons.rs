@@ -1,8 +1,8 @@
 use crate::person::Person;
 
 pub struct Persons{
-    total_debt: f32,
-    persons: Vec<Person>,
+    pub total_debt: f32,
+    pub persons: Vec<Person>,
 }
 
 impl Persons {
@@ -13,7 +13,7 @@ impl Persons {
     }
 }
 
-    fn updateTotalDebt(&self) {
+    pub fn update_total_debt(&mut self) {
         let mut debt_temp : f32 = 0.0;
         for element in &self.persons{
             debt_temp += element.debt;
@@ -28,7 +28,7 @@ impl Persons {
     //     }
     // }
 
-    pub fn printPersons(&self){
+    pub fn print_persons(&self){
         for element in &self.persons{
             println!("Name: {}", element.name);
             println!("Debt: {}", element.debt);

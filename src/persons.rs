@@ -21,17 +21,25 @@ impl Persons {
         self.total_debt = debt_temp;
     }
 
-    // fn updatePersonDebt(&self) {
-    //     let mut equalShare : f32  = self.totalDebt / self.persons.len();
-    //     for element in self.persons {
-    //         self.persons[element].debt = equalShare - self.persons[element].debt;
-    //     }
-    // }
+    pub fn update_person_debt(&mut self) {
+         let mut equal_share : f32  = self.total_debt / self.persons.len() as f32;
+         for person in &mut self.persons {
+             person.share = equal_share - person.debt;
+         }
+     }
 
     pub fn print_persons(&self){
+
         for element in &self.persons{
             println!("Name: {}", element.name);
             println!("Debt: {}", element.debt);
+        }
+    }
+
+    pub fn print_persons_share(&self){
+        for element in &self.persons{
+            println!("Name: {}", element.name);
+            println!("Share: {}", element.share);
         }
     }
 }

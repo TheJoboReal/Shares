@@ -15,5 +15,9 @@ fn main() {
     persons.print_persons();
     persons.update_total_debt();
     println!("Total debt: {}", persons.total_debt);
+
+    persons.update_person_debt();
+    persons.print_persons();
+    persons.print_persons_share();
 }
 

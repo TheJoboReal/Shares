@@ -1,6 +1,7 @@
 pub struct Person {
     pub name: String,
     pub debt: f32,
+    pub share: f32,
 }
 
 
@@ -9,6 +10,7 @@ impl Person {
         Person{
             name,
             debt,
+            share: 0.0,
         }
     }
 }

@@ -19,5 +19,7 @@ fn main() {
     persons.update_person_share();
     persons.print_persons();
     persons.print_persons_share();
+
+    persons.what_owed();
 }
 

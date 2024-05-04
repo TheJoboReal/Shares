@@ -66,12 +66,12 @@ impl Persons {
 
         // Iterate through people who owe money and people who are owed money
         // and print out the transactions
-        for person_i in &owed{
+        for person_i in &mut owed{
             let mut total_owed : f32 = 0.0;
 
-            for person_j in &owes{
+            for person_j in &mut owes{
 
-                    let mut share : f32 = min(total_owed, person_j.share);
+                    let mut share : f32 = f32::min(total_owed, person_j.share);
 
                 if share != 0.0 {
                     println!("{} owes {} to {}", person_j.name, share, person_i.name);

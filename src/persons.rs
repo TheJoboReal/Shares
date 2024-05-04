@@ -31,7 +31,7 @@ impl Persons {
     pub fn update_person_share(&mut self) {
          let mut equal_share : f32  = self.total_debt / self.persons.len() as f32;
          for person in &mut self.persons {
-             person.share = equal_share - person.debt;
+             person.share = person.debt - equal_share;
          }
      }
 
@@ -74,7 +74,7 @@ impl Persons {
                     let mut share : f32 = f32::min(total_owed, person_j.share);
 
                 if share != 0.0 {
-                    println!("{} owes {} to {}", person_j.name, share, person_i.name);
+                    println!("{} owes {} to {}", person_j.name, -share, person_i.name);
                 }
                 
                 // Update the total amount owed by person_j

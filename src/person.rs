@@ -1,4 +1,4 @@
-#[derive(Debug)]
+#[derive(Clone)]
 pub struct Person {
     pub name: String,
     pub debt: f32,

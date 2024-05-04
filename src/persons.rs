@@ -1,3 +1,5 @@
+use std::cmp::min;
+
 use crate::person::Person;
 
 #[derive(Clone)]
@@ -54,7 +56,7 @@ impl Persons {
         let mut owes: Vec<Person> = Vec::new();
 
         // Separate the people who owe money from the people who are owed money
-        for person_i in self.persons{
+        for person_i in &self.persons{
             if person_i.share > 0.0 {
                 owed.push(person_i.clone());
             } else if person_i.share < 0.0 {
@@ -65,6 +67,24 @@ impl Persons {
         // Iterate through people who owe money and people who are owed money
         // and print out the transactions
         for person_i in &owed{
+            let mut total_owed : f32 = 0.0;
+
+            for person_j in &owes{
+
+                    let mut share : f32 = min(total_owed, person_j.share);
+
+                if share != 0.0 {
+                    println!("{} owes {} to {}", person_j.name, share, person_i.name);
+                }
+                
+                // Update the total amount owed by person_j
+                person_j.share -= share;
+                // Update the total amount owed to person_i
+                person_i.share += share;
+
+                total_owed -= share;
+            }
         }
     }
 }
+
